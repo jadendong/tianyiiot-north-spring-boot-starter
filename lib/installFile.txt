@@ -1,0 +1,1 @@
+mvn install:install-file -DgroupId=com.huawei -DartifactId=api-client -Dversion=1.5.3 -Dpackaging=jar -Dfile=api-client-1.0.0.jar

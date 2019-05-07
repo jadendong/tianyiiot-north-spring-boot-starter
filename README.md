@@ -32,4 +32,7 @@ iot.platformIp=
 iot.platformPort=
 iot.appId=
 iot.secret=
+
+iot.serviceId=
+iot.method=
 ```

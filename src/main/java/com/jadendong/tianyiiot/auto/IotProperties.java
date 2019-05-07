@@ -13,6 +13,9 @@ public class IotProperties {
     private String appId;
     private String secret;
 
+    private String serviceId;
+    private String method;
+
     public String getPlatformIp() {
         return platformIp;
     }
@@ -43,5 +46,21 @@ public class IotProperties {
 
     public void setSecret(String secret) {
         this.secret = secret;
+    }
+
+    public String getServiceId() {
+        return serviceId;
+    }
+
+    public void setServiceId(String serviceId) {
+        this.serviceId = serviceId;
+    }
+
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
     }
 }
