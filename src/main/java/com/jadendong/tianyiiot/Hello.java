@@ -17,8 +17,8 @@ public class Hello {
     }
 
     public void info() {
-        System.out.println("Ip: " + iotProperties.getPlatformIp());
-        System.out.println("Port: " + iotProperties.getPlatformPort());
+        System.out.println("platformIp: " + iotProperties.getPlatformIp());
+        System.out.println("platformPort: " + iotProperties.getPlatformPort());
         System.out.println("appId: " + iotProperties.getAppId());
         System.out.println("secret: " + iotProperties.getSecret());
     }

@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 /**
  * @author jaden
  */
-@ConfigurationProperties(prefix = "north")
+@ConfigurationProperties(prefix = "iot")
 public class IotProperties {
 
     private String platformIp;

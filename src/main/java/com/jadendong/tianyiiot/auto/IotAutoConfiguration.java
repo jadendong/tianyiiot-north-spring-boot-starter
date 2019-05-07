@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableConfigurationProperties(IotProperties.class)
 @ConditionalOnClass(IotProperties.class)
-@ConditionalOnProperty(prefix = "north", value = "enabled", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "iot", value = "enabled", matchIfMissing = true)
 public class IotAutoConfiguration {
 
     private final IotProperties iotProperties;
