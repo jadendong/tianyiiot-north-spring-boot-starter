@@ -8,9 +8,11 @@ import com.iotplatform.client.dto.PostDeviceCommandInDTO2;
 import com.iotplatform.client.dto.PostDeviceCommandOutDTO2;
 import com.iotplatform.client.invokeapi.Authentication;
 import com.iotplatform.client.invokeapi.SignalDelivery;
+import com.jadendong.tianyiiot.params.PostDeviceCommandParams;
 import com.jadendong.tianyiiot.util.AuthUtil;
 import com.jadendong.tianyiiot.auto.IotProperties;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -31,6 +33,33 @@ public class PostDeviceCommandTemplate {
         this.iotProperties = iotProperties;
     }
 
+    public PostDeviceCommandOutDTO2 post(PostDeviceCommandParams params) throws NorthApiException {
+        PostDeviceCommandInDTO2 pdcInDTO = new PostDeviceCommandInDTO2();
+        pdcInDTO.setDeviceId(params.getDeviceId() != null ? params.getDeviceId() : iotProperties.getDefaultDeviceId());
+
+        CommandDTOV4 cmd = new CommandDTOV4();
+        cmd.setServiceId(params.getServiceId() != null ? params.getServiceId() : iotProperties.getDefaultServiceId());
+        cmd.setMethod(params.getMethod() != null ? params.getMethod() : iotProperties.getDefaultMethod());
+        cmd.setParas(params.getCmdParas());
+
+        pdcInDTO.setCommand(cmd);
+
+        return post(pdcInDTO);
+    }
+
+    /**
+     * 3.7.1 创建设备命令
+     * 自动获取 token
+     * 向本应用的设备下发命令
+     *
+     * @param postDeviceCommandInDTO2 postDeviceCommandInDTO2
+     * @return PostDeviceCommandOutDTO2 PostDeviceCommandOutDTO2
+     * @throws NorthApiException NorthApiException
+     */
+    private PostDeviceCommandOutDTO2 post(PostDeviceCommandInDTO2 postDeviceCommandInDTO2) throws NorthApiException {
+        return post(postDeviceCommandInDTO2, null);
+    }
+
     /**
      * 3.7.1 创建设备命令
      * 自动获取 token
@@ -41,7 +70,7 @@ public class PostDeviceCommandTemplate {
      * @return PostDeviceCommandOutDTO2 PostDeviceCommandOutDTO2
      * @throws NorthApiException NorthApiException
      */
-    public PostDeviceCommandOutDTO2 post(PostDeviceCommandInDTO2 postDeviceCommandInDTO2, String appId) throws NorthApiException {
+    private PostDeviceCommandOutDTO2 post(PostDeviceCommandInDTO2 postDeviceCommandInDTO2, String appId) throws NorthApiException {
 
         // 1. initialize northApiClient
 
@@ -60,62 +89,5 @@ public class PostDeviceCommandTemplate {
             System.out.println(e.toString());
         }
         return null;
-    }
-
-    /**
-     * 3.7.1 创建设备命令
-     * 自动获取 token
-     * 向本应用的设备下发命令
-     *
-     * @param postDeviceCommandInDTO2 postDeviceCommandInDTO2
-     * @return PostDeviceCommandOutDTO2 PostDeviceCommandOutDTO2
-     * @throws NorthApiException NorthApiException
-     */
-    public PostDeviceCommandOutDTO2 post(PostDeviceCommandInDTO2 postDeviceCommandInDTO2) throws NorthApiException {
-        return post(postDeviceCommandInDTO2, null);
-    }
-
-    /**
-     * 3.7.1 创建设备命令
-     *
-     * @param deviceId  设备id
-     * @param serviceId serviceId
-     * @param method    method
-     * @param maps      maps
-     * @return PostDeviceCommandOutDTO2
-     * @throws NorthApiException NorthApiException
-     */
-    public PostDeviceCommandOutDTO2 post(String deviceId, String serviceId, String method, Map<String, Object> maps) throws NorthApiException {
-        PostDeviceCommandInDTO2 pdcInDTO = new PostDeviceCommandInDTO2();
-        pdcInDTO.setDeviceId(deviceId);
-
-        CommandDTOV4 cmd = new CommandDTOV4();
-        cmd.setServiceId(serviceId);
-        cmd.setMethod(method);
-        cmd.setParas(maps);
-        pdcInDTO.setCommand(cmd);
-
-        return post(pdcInDTO);
-    }
-
-    /**
-     * 3.7.1 创建设备命令
-     *
-     * @param deviceId deviceId
-     * @param maps     maps
-     * @return PostDeviceCommandOutDTO2
-     * @throws NorthApiException NorthApiException
-     */
-    public PostDeviceCommandOutDTO2 post(String deviceId, Map<String, Object> maps) throws NorthApiException {
-        PostDeviceCommandInDTO2 pdcInDTO = new PostDeviceCommandInDTO2();
-        pdcInDTO.setDeviceId(deviceId);
-
-        CommandDTOV4 cmd = new CommandDTOV4();
-        cmd.setServiceId(iotProperties.getServiceId());
-        cmd.setMethod(iotProperties.getMethod());
-        cmd.setParas(maps);
-        pdcInDTO.setCommand(cmd);
-
-        return post(pdcInDTO);
     }
 }

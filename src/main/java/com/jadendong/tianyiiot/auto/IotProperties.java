@@ -1,66 +1,46 @@
 package com.jadendong.tianyiiot.auto;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * @author jaden
  */
 @ConfigurationProperties(prefix = "iot")
+@Getter
+@Setter
 public class IotProperties {
 
+    /**
+     * 接入IP (必选)
+     */
     private String platformIp;
+    /**
+     * 接入端口 (必选)
+     */
     private String platformPort;
+    /**
+     * 应用ID (必选)
+     */
     private String appId;
+    /**
+     * 应用密钥 (必选)
+     */
     private String secret;
 
-    private String serviceId;
-    private String method;
+    /**
+     * 默认的 deviceId (可选)
+     */
+    private String defaultDeviceId;
 
-    public String getPlatformIp() {
-        return platformIp;
-    }
+    /**
+     * 默认的 serviceId (可选)
+     */
+    private String defaultServiceId;
 
-    public void setPlatformIp(String platformIp) {
-        this.platformIp = platformIp;
-    }
-
-    public String getPlatformPort() {
-        return platformPort;
-    }
-
-    public void setPlatformPort(String platformPort) {
-        this.platformPort = platformPort;
-    }
-
-    public String getAppId() {
-        return appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public String getSecret() {
-        return secret;
-    }
-
-    public void setSecret(String secret) {
-        this.secret = secret;
-    }
-
-    public String getServiceId() {
-        return serviceId;
-    }
-
-    public void setServiceId(String serviceId) {
-        this.serviceId = serviceId;
-    }
-
-    public String getMethod() {
-        return method;
-    }
-
-    public void setMethod(String method) {
-        this.method = method;
-    }
+    /**
+     * 默认的 Method (可选)
+     */
+    private String defaultMethod;
 }
