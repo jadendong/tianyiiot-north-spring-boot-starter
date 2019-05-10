@@ -1,7 +1,7 @@
 # tianyiiot-north-spring-boot-starter
 [![](https://jitpack.io/v/com.jadendong/tianyiiot-north-spring-boot-starter.svg)](https://jitpack.io/#com.jadendong/tianyiiot-north-spring-boot-starter)
 
-天翼物联网 北向API
+电信物联网北向SDK的简单封装。使之可以充分利用 spring boot的自动配置特性，简化开发流程。
 
 ## How to use ?
 
@@ -24,15 +24,4 @@
     <artifactId>tianyiiot-north-spring-boot-starter</artifactId>
     <version>Tag</version>
 </dependency>
-```
-
-## Configuration
-```properties
-iot.platformIp=
-iot.platformPort=
-iot.appId=
-iot.secret=
-
-iot.serviceId=
-iot.method=
 ```
