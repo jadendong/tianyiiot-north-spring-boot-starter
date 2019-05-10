@@ -1,5 +1,6 @@
 # tianyiiot-north-spring-boot-starter
 [![](https://jitpack.io/v/com.jadendong/tianyiiot-north-spring-boot-starter.svg)](https://jitpack.io/#com.jadendong/tianyiiot-north-spring-boot-starter)
+[![Build Status](https://www.travis-ci.org/jadendong/tianyiiot-north-spring-boot-starter.svg?branch=master)](https://www.travis-ci.org/jadendong/tianyiiot-north-spring-boot-starter)
 
 电信物联网北向SDK的简单封装。使之可以充分利用 spring boot的自动配置特性，简化开发流程。
 
