@@ -12,9 +12,6 @@ import com.jadendong.tianyiiot.params.PostDeviceCommandParams;
 import com.jadendong.tianyiiot.util.AuthUtil;
 import com.jadendong.tianyiiot.auto.IotProperties;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * 3.7.1 创建设备命令
  * 设备Profile文件中定义了物联网平台可向设备下发的命令，第三方应用可调用此接口向设备下发命令，配置或修改设备的服务属性，以实现对设备的控制。
