@@ -3,6 +3,7 @@ package com.jadendong.tianyiiot.auto;
 import com.jadendong.tianyiiot.Hello;
 import com.jadendong.tianyiiot.template.PostDeviceCommandTemplate;
 import com.jadendong.tianyiiot.template.QueryBatchDevicesInfoTemplate;
+import com.jadendong.tianyiiot.template.QuerySingleDeviceInfoTemplate;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -41,5 +42,11 @@ public class IotAutoConfiguration {
     @ConditionalOnMissingBean(IotProperties.class)
     public QueryBatchDevicesInfoTemplate queryBatchDevicesInfoTemplate() {
         return new QueryBatchDevicesInfoTemplate(iotProperties);
+    }
+
+    @Bean
+    @ConditionalOnMissingBean(IotProperties.class)
+    public QuerySingleDeviceInfoTemplate querySingleDeviceInfoTemplate() {
+        return new QuerySingleDeviceInfoTemplate(iotProperties);
     }
 }
