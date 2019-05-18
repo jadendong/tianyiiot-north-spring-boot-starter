@@ -31,11 +31,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.huawei.m2m.iotplatform</groupId>
+            <groupId>com.huawei.iotplatform</groupId>
             <artifactId>api-client</artifactId>
-            <version>1.0.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/api-client-1.0.0.jar</systemPath>
+            <version>1.5.3</version>
         </dependency>
 
         <dependency>
